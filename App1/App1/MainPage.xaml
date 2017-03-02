@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{x:Static local:strings.MainPageTitle}"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="EcardButton"
+                Text="Top Left" 
+                Clicked="EcardButton_Clicked"
+                Grid.Row="0" 
+                Grid.Column="0"/>
+        <BoxView Color="Blue" Grid.Row="0" Grid.Column="1" HorizontalOptions="Fill"/>
+        <BoxView Color="Red" Grid.Row="1" Grid.Column="0" />
+        <BoxView Color="Green" Grid.Row="1" Grid.Column="1" />
+    </Grid>
+
+</ContentPage>
