@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1\App1.csproj", "{A4101EF0-2B11-4194-803C-C2AF8A5D4CA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuptAssistant", "App1\App1\BuptAssistant.csproj", "{A4101EF0-2B11-4194-803C-C2AF8A5D4CA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1.Droid", "App1\App1.Droid\App1.Droid.csproj", "{D8D89CAB-7691-4F4E-9F9E-D16FAC325E72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuptAssistant.Droid", "App1\App1.Droid\BuptAssistant.Droid.csproj", "{D8D89CAB-7691-4F4E-9F9E-D16FAC325E72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1.UWP", "App1\App1.UWP\App1.UWP.csproj", "{A690FA51-96AF-475C-8A3A-DA6F6C14E70A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuptAssistant.UWP", "App1\App1.UWP\BuptAssistant.UWP.csproj", "{A690FA51-96AF-475C-8A3A-DA6F6C14E70A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcardData", "EcardData\EcardData.csproj", "{81BA216E-3498-4700-89CB-9941C7EB0C0A}"
 EndProject

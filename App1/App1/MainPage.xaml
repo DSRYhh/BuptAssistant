@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{x:Static local:strings.MainPageTitle}"
-             xmlns:local="clr-namespace:App1"
-             x:Class="App1.MainPage">
+             xmlns:local="clr-namespace:BuptAssistant"
+             x:Class="BuptAssistant.MainPage">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -15,12 +15,18 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button x:Name="EcardButton"
-                Text="Top Left" 
+            <Button x:Name="EcardButton"
+                Text="{x:Static local:strings.EcardPageTitle}" 
                 Clicked="EcardButton_Clicked"
+                BackgroundColor="Blue"
                 Grid.Row="0" 
                 Grid.Column="0"/>
-        <BoxView Color="Blue" Grid.Row="0" Grid.Column="1" HorizontalOptions="Fill"/>
+            <Button x:Name="TestButton"
+                Text="{x:Static local:strings.EcardPageTitle}" 
+                Clicked="TestButton_OnClicked"
+                BackgroundColor="Navy"
+                Grid.Row="0" 
+                Grid.Column="1"/>
         <BoxView Color="Red" Grid.Row="1" Grid.Column="0" />
         <BoxView Color="Green" Grid.Row="1" Grid.Column="1" />
     </Grid>

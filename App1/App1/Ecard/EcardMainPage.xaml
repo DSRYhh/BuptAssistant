@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ecard="clr-namespace:BuptAssistant.Ecard;assembly=BuptAssistant"
+             xmlns:buptAssistant="clr-namespace:BuptAssistant;assembly=BuptAssistant"
+             x:Class="BuptAssistant.Ecard.EcardMainPage"
+             Title="{x:Static buptAssistant:strings.EcardPageTitle}">
+    <ecard:EcardBalancePage Title="{x:Static buptAssistant:strings.Balance}"/>
+    <ecard:EcardStatisticPage Title="{x:Static buptAssistant:strings.Statistic}"/>
+</TabbedPage>

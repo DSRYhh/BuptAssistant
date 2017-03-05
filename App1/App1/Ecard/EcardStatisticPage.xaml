@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:buptAssistant="clr-namespace:BuptAssistant;assembly=BuptAssistant"
+             x:Class="BuptAssistant.Ecard.EcardStatisticPage">
+
+    
+        <StackLayout Orientation="Vertical"
+                     x:Name="MainStackLayout">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{x:Static buptAssistant:strings.DateBeginHint}"/>
+                <DatePicker x:Name="StartDatePicker"
+                                    DateSelected="StartDatePicker_DateSelected"
+                                    MaximumDate="{Binding EndDatePicker.Date}"/>
+                <Label Text="{x:Static buptAssistant:strings.DateEndHint}"/>
+                <DatePicker x:Name="EndDatePicker"
+                                    MinimumDate="{Binding StartDatePicker.Date}"/>
+                <Button x:Name="QueryButton"
+                                Text="{x:Static buptAssistant:strings.Query}"
+                                Clicked="QueryButton_Clicked"/>
+            </StackLayout>  
+
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsRunning="True"
+                               IsVisible="False"/>
+            <chart:SfChart HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           x:Name="DataChart">
+                    <chart:SfChart.PrimaryAxis>
+                        <chart:CategoryAxis>
+                            <chart:CategoryAxis/>
+                        </chart:CategoryAxis>
+                    </chart:SfChart.PrimaryAxis>
+                    <chart:SfChart.SecondaryAxis>
+                        <chart:NumericalAxis>
+                            <chart:NumericalAxis/>
+                        </chart:NumericalAxis>
+                    </chart:SfChart.SecondaryAxis>
+                    <chart:SfChart.Series>
+                        <chart:SplineAreaSeries x:Name="Line"/>
+                    </chart:SfChart.Series>
+                </chart:SfChart>
+    </StackLayout>
+</ContentPage>

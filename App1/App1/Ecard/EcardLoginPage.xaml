@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buptAssistant="clr-namespace:BuptAssistant;assembly=BuptAssistant"
+             x:Class="BuptAssistant.Ecard.EcardLoginPage"
+             Title="{x:Static buptAssistant:strings.Login}">
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{x:Static buptAssistant:strings.UserName}"/>
+            <Entry Placeholder="{x:Static buptAssistant:strings.YourSchoolID}"
+                   x:Name="UserNameEntry"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{x:Static buptAssistant:strings.Password}"/>
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="{x:Static buptAssistant:strings.DefaultByPersonalID}"
+                   IsPassword="True"/>
+        </StackLayout>
+        <Button x:Name="Login"
+                Text="{x:Static buptAssistant:strings.Login}"
+                Clicked="Login_Clicked"/>
+    </StackLayout>
+</ContentPage>

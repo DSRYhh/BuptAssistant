@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace App1
+namespace BuptAssistant
 {
     public partial class App : Application
     {

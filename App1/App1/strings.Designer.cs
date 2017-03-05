@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace App1 {
+namespace BuptAssistant {
     using System;
     using System.Reflection;
     
@@ -40,7 +40,7 @@ namespace App1 {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("App1.strings", typeof(strings).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BuptAssistant.strings", typeof(strings).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -62,11 +62,74 @@ namespace App1 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 一卡通信息.
+        ///   Looks up a localized string similar to 提示.
+        /// </summary>
+        internal static string Alert {
+            get {
+                return ResourceManager.GetString("Alert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 余额.
+        /// </summary>
+        internal static string Balance {
+            get {
+                return ResourceManager.GetString("Balance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 从.
+        /// </summary>
+        internal static string DateBeginHint {
+            get {
+                return ResourceManager.GetString("DateBeginHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 到.
+        /// </summary>
+        internal static string DateEndHint {
+            get {
+                return ResourceManager.GetString("DateEndHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 默认密码为身份证后六位.
+        /// </summary>
+        internal static string DefaultByPersonalID {
+            get {
+                return ResourceManager.GetString("DefaultByPersonalID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 此功能需要您的校园一卡通账号密码.
+        /// </summary>
+        internal static string EcardNoLoginHint {
+            get {
+                return ResourceManager.GetString("EcardNoLoginHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 校园一卡通.
         /// </summary>
         internal static string EcardPageTitle {
             get {
                 return ResourceManager.GetString("EcardPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 登录.
+        /// </summary>
+        internal static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
@@ -76,6 +139,69 @@ namespace App1 {
         internal static string MainPageTitle {
             get {
                 return ResourceManager.GetString("MainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 好.
+        /// </summary>
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 密码.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 查询.
+        /// </summary>
+        internal static string Query {
+            get {
+                return ResourceManager.GetString("Query", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 开始日期不能晚于结束日期.
+        /// </summary>
+        internal static string StartDateAfterEndDate {
+            get {
+                return ResourceManager.GetString("StartDateAfterEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 统计.
+        /// </summary>
+        internal static string Statistic {
+            get {
+                return ResourceManager.GetString("Statistic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 用户名.
+        /// </summary>
+        internal static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 您的学号.
+        /// </summary>
+        internal static string YourSchoolID {
+            get {
+                return ResourceManager.GetString("YourSchoolID", resourceCulture);
             }
         }
     }

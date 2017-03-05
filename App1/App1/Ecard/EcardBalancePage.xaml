@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buptAssistant="clr-namespace:BuptAssistant;assembly=BuptAssistant"
+             
+             x:Class="BuptAssistant.Ecard.EcardBalancePage">
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{x:Static buptAssistant:strings.DateBeginHint}"/>
+            <DatePicker x:Name="StartDatePicker"
+                        DateSelected="StartDatePicker_DateSelected"/>
+            <Label Text="{x:Static buptAssistant:strings.DateEndHint}"/>
+            <DatePicker x:Name="EndDatePicker"
+                        MinimumDate="{Binding StartDatePicker.Date}"/>
+            <Button x:Name="QueryButton"
+                    Text="{x:Static buptAssistant:strings.Query}"
+                    Clicked="QueryButton_Clicked"/>
+        </StackLayout>
+
+        <ActivityIndicator Color="Red"
+                           IsRunning="True"
+                           IsVisible="False"
+                           x:Name="RefreshIndicator"/>
+        
+        <ListView x:Name="EcardRecordsList"
+              IsPullToRefreshEnabled="True"
+              Refreshing="EcardRecords_Refreshing"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding OperatingDate,StringFormat='{0:M-d HH:mm}'}"/>
+                            <Label Text="{Binding Amount}" Grid.Column="1"/>
+                            <Label Text="{Binding Station}" Grid.Column="2"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

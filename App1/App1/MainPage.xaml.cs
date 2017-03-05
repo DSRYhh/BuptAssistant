@@ -5,34 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using EcardData;
-namespace App1
+namespace BuptAssistant
 {
     public partial class MainPage
     {
-        private int Counter { get; set; }
         public MainPage()
         {
             InitializeComponent();
-            Counter = 0;
+
 
             GetBalance();
         }
 
+
         private async void EcardButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EcardBalance());
+            await Navigation.PushAsync(new Ecard.EcardMainPage());
         }
 
         private async Task<double> GetBalance()
         {
-            DateTime start = new DateTime(2017, 2, 21);
+            DateTime start = DateTime.Today.AddDays(-7);
             DateTime end = DateTime.Today;
             EcardSystem ecardSystem = new EcardSystem("2014210920", "221414", start, end);
 
             await ecardSystem.Login();
             double balance = await ecardSystem.GetBalance();
-            EcardButton.Text = balance.ToString();
+            if (balance < 100)
+            {
+                EcardButton.TextColor = Color.Red;
+            }
+            EcardButton.Text = strings.Balance + ":" + balance.ToString();
             return balance;
+        }
+
+        private void TestButton_OnClicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

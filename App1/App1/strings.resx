@@ -117,10 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Alert" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>余额</value>
+  </data>
+  <data name="DateBeginHint" xml:space="preserve">
+    <value>从</value>
+  </data>
+  <data name="DateEndHint" xml:space="preserve">
+    <value>到</value>
+  </data>
+  <data name="DefaultByPersonalID" xml:space="preserve">
+    <value>默认密码为身份证后六位</value>
+  </data>
+  <data name="EcardNoLoginHint" xml:space="preserve">
+    <value>此功能需要您的校园一卡通账号密码</value>
+  </data>
   <data name="EcardPageTitle" xml:space="preserve">
-    <value>一卡通信息</value>
+    <value>校园一卡通</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
   </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>主页</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>好</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Query" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="StartDateAfterEndDate" xml:space="preserve">
+    <value>开始日期不能晚于结束日期</value>
+  </data>
+  <data name="Statistic" xml:space="preserve">
+    <value>统计</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="YourSchoolID" xml:space="preserve">
+    <value>您的学号</value>
   </data>
 </root>

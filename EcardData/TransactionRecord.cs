@@ -3,13 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EcardData
 {
     public class TransactionRecord : IEnumerable<string>
     {
-        public string OperatingTime { get; set; }
+        public string OperatingTimeString { get; set; }
+
+        public DateTime OperatingDate
+        {
+            get
+            {
+                string pattern = @"([0-9]+?)\/([0-9]+?)\/([0-9]+?) ([0-9]+?):([0-9]+?):([0-9]+)";
+                Regex regex = new Regex(pattern);
+                var match = regex.Match(OperatingTimeString);
+                var group = match.Groups;
+
+
+                try
+                {
+                    int year = int.Parse(group[1].Value);
+                    int month = int.Parse(group[2].Value);
+                    int date = int.Parse(group[3].Value);
+                    int hour = int.Parse(group[4].Value);
+                    int minute = int.Parse(group[5].Value);
+                    int second = int.Parse(group[6].Value);
+
+                    return new DateTime(year, month, date, hour, minute, second);
+                }
+                catch (Exception)
+                {
+                    return DateTime.MinValue;
+                }
+            }
+        }
+
         public string Description { get; set; }
         public string Amount { get; set; }
         public string Balance { get; set; }
@@ -19,7 +49,8 @@ namespace EcardData
 
         public override string ToString()
         {
-            return $"{OperatingTime}   \t{Amount}\t{Station}\t                 余额：{Balance}";
+            string time = OperatingDate.ToString(@"MM\/dd HH:mm");
+            return $"{time}\t {Amount}\t {Station}";
         }
         public TransactionRecord(ICollection<string> list)
         {
@@ -30,7 +61,7 @@ namespace EcardData
                 switch (i)
                 {
                     case 0:
-                        OperatingTime = entry;
+                        OperatingTimeString = entry;
                         break;
                     case 1:
                         this.Description = entry;
@@ -58,7 +89,7 @@ namespace EcardData
         public IEnumerator<string> GetEnumerator()
         {
             return
-                new List<string>() { OperatingTime, Description, Amount, Balance, Operator, Station, Terminal }
+                new List<string>() { OperatingTimeString, Description, Amount, Balance, Operator, Station, Terminal }
                     .GetEnumerator();
         }
 

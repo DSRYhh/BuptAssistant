@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace App1.UWP
+namespace BuptAssistant.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace App1.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new App1.App());
+            LoadApplication(new BuptAssistant.App());
         }
     }
 }
