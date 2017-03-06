@@ -50,6 +50,7 @@
     <Compile Include="Ecard\EcardStatisticPage.xaml.cs">
       <DependentUpon>EcardStatisticPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CampusNetwork\INetworkStatus.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -76,6 +77,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Plugin.Connectivity, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.3.0\lib\portable-net45+wp80+win8+wpa81\Plugin.Connectivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.3.0\lib\portable-net45+wp80+win8+wpa81\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Syncfusion.SfChart.XForms, Version=15.1451.0.37, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Syncfusion.Xamarin.SfChart.15.1.0.37\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.SfChart.XForms.dll</HintPath>
       <Private>True</Private>
@@ -104,6 +113,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CampusNetwork\CampusNetwork.csproj">
+      <Project>{b0bf176a-bbfe-4373-a64b-c643f2da6c0a}</Project>
+      <Name>CampusNetwork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\EcardData\EcardData.csproj">
       <Project>{81ba216e-3498-4700-89cb-9941c7eb0c0a}</Project>
       <Name>EcardData</Name>

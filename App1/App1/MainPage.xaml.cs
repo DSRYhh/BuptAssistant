@@ -1,18 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using BuptAssistant.CampusNetwork;
 using Xamarin.Forms;
 using EcardData;
+using CampusNetwork;
+using Plugin.Connectivity;
+
 namespace BuptAssistant
 {
     public partial class MainPage
     {
+        private HashSet<string> needLoginSsid = new HashSet<string>() {"BlackTea"};
         public MainPage()
         {
             InitializeComponent();
+            CrossConnectivity.Current.ConnectivityTypeChanged += async (sender, e) =>
+            {
+                var status = DependencyService.Get<INetworkStatus>().GetNetworkStatus();
 
+                if (status.Type == NetworkType.Wifi || needLoginSsid.Contains(status.Name))
+                {
+                    await CampusNetworkLogin.Login("2014210920", "notlove*");
+                }
+            };
 
             GetBalance();
         }
