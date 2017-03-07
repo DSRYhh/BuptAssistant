@@ -125,6 +125,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 如果要使用一卡通功能，您必须提供您的一卡通账号和密码。我们保证不会上传您的凭据。.
+        /// </summary>
+        internal static string GuideToInputEcardIDandPasswordMessage {
+            get {
+                return ResourceManager.GetString("GuideToInputEcardIDandPasswordMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 登录.
         /// </summary>
         internal static string Login {
@@ -139,6 +148,15 @@ namespace BuptAssistant {
         internal static string MainPageTitle {
             get {
                 return ResourceManager.GetString("MainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 不.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         

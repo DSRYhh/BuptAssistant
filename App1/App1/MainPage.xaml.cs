@@ -18,17 +18,42 @@ namespace BuptAssistant
         public MainPage()
         {
             InitializeComponent();
-            CrossConnectivity.Current.ConnectivityTypeChanged += async (sender, e) =>
+
+            ////Network
+            //CrossConnectivity.Current.ConnectivityTypeChanged += async (sender, e) =>
+            //{
+            //    //var status = DependencyService.Get<INetworkStatus>().GetNetworkStatus();
+
+            //    //if (status.Type == NetworkType.Wifi || needLoginSsid.Contains(status.Name))
+            //    //{
+            //    //await CampusNetworkLogin.Login("2014210920", "notlove*");
+            //    //}
+            //};
+
+
+
+            //Ecard
+            if (Application.Current.Properties.ContainsKey("Ecard.enable"))
             {
-                var status = DependencyService.Get<INetworkStatus>().GetNetworkStatus();
-
-                if (status.Type == NetworkType.Wifi || needLoginSsid.Contains(status.Name))
+                bool isEcardEnable = (bool) Application.Current.Properties["Ecard.enable"];
+                if (isEcardEnable)
                 {
-                    await CampusNetworkLogin.Login("2014210920", "notlove*");
-                }
-            };
+                    //get balance to show on the button
+                    var ecardId = Application.Current.Properties["Ecard.id"] as string;
+                    var ecardPassword = Application.Current.Properties["Ecard.password"] as string;
 
-            GetBalance();
+                    Device.BeginInvokeOnMainThread(async () => {
+                        await GetBalance(ecardId, ecardPassword);
+                    });
+                }
+            }
+            else
+            {
+                Application.Current.Properties.Add("Ecard.enable", false);
+                Device.BeginInvokeOnMainThread(async () => {
+                    await Application.Current.SavePropertiesAsync();
+                });
+            }
         }
 
 
@@ -37,11 +62,11 @@ namespace BuptAssistant
             await Navigation.PushAsync(new Ecard.EcardMainPage());
         }
 
-        private async Task<double> GetBalance()
+        private async Task<double> GetBalance(string ecardId, string ecardPassword)
         {
             DateTime start = DateTime.Today.AddDays(-7);
             DateTime end = DateTime.Today;
-            EcardSystem ecardSystem = new EcardSystem("2014210920", "221414", start, end);
+            EcardSystem ecardSystem = new EcardSystem(ecardId, ecardPassword, start, end);
 
             await ecardSystem.Login();
             double balance = await ecardSystem.GetBalance();
@@ -49,13 +74,13 @@ namespace BuptAssistant
             {
                 EcardButton.TextColor = Color.Red;
             }
-            EcardButton.Text = strings.Balance + ":" + balance.ToString();
+            Device.BeginInvokeOnMainThread(() => {
+                EcardButton.Text = strings.Balance + ":" + balance.ToString();
+            });
+
             return balance;
         }
 
-        private void TestButton_OnClicked(object sender, EventArgs e)
-        {
-            
-        }
+        
     }
 }

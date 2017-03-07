@@ -138,11 +138,17 @@
   <data name="EcardPageTitle" xml:space="preserve">
     <value>校园一卡通</value>
   </data>
+  <data name="GuideToInputEcardIDandPasswordMessage" xml:space="preserve">
+    <value>如果要使用一卡通功能，您必须提供您的一卡通账号和密码。我们保证不会上传您的凭据。</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>登录</value>
   </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>主页</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>不</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>好</value>

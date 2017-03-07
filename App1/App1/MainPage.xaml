@@ -23,7 +23,6 @@
                 Grid.Column="0"/>
             <Button x:Name="TestButton"
                 Text="{x:Static local:strings.EcardPageTitle}" 
-                Clicked="TestButton_OnClicked"
                 BackgroundColor="Navy"
                 Grid.Row="0" 
                 Grid.Column="1"/>

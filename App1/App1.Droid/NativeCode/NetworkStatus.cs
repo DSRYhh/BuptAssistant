@@ -11,7 +11,7 @@ namespace BuptAssistant.Droid.NativeCode
 {
     public class NetworkStatus : INetworkStatus
     {
-        CampusNetwork.NetworkStatus INetworkStatus.GetNetworkStatus()
+        public CampusNetwork.NetworkStatus GetNetworkStatus()
         {
             ConnectivityManager manager =
                 Xamarin.Forms.Forms.Context.GetSystemService(Context.ConnectivityService) as ConnectivityManager;

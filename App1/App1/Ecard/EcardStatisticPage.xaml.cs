@@ -51,7 +51,9 @@ namespace BuptAssistant.Ecard
         {
             LoadingIndicator.IsVisible = true;
 
-            EcardSystem ecardSystem = new EcardSystem("2014210920", "221414", startQueryTime, endQueryTime);
+            string id = Application.Current.Properties["Ecard.id"] as string;
+            string password = Application.Current.Properties["Ecard.password"] as string;
+            EcardSystem ecardSystem = new EcardSystem(id, password, startQueryTime, endQueryTime);
             await ecardSystem.Login();
 
             var detail = await ecardSystem.GetDetail();

@@ -9,13 +9,20 @@ namespace CampusNetwork
 {
     public class CampusNetworkLogin
     {
+
         private static readonly Uri Address = new Uri("http://gw.bupt.edu.cn/");
         public static async Task Login(string userId,string password)
         {
             string postData = PostDataBuilder(userId, password);
             using (HttpClient client = new HttpClient() {BaseAddress = Address})
             {
-                await client.PostAsync("", new StringContent(postData, Encoding.UTF8, "text/html"));
+                var response = await client.PostAsync("", new StringContent(postData, Encoding.UTF8, "text/html"));
+
+                
+                //var content = response.Content;
+                //var stream = await content.ReadAsStreamAsync();
+                //HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                //doc.Load(stream);
             }
         }
 

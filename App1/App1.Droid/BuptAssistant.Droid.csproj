@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="NativeCode\CampusNetworkService.cs" />
     <Compile Include="NativeCode\NetworkStatus.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +159,10 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CampusNetwork\CampusNetwork.csproj">
+      <Project>{B0BF176A-BBFE-4373-A64B-C643F2DA6C0A}</Project>
+      <Name>CampusNetwork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\App1\BuptAssistant.csproj">
       <Project>{A4101EF0-2B11-4194-803C-C2AF8A5D4CA4}</Project>
       <Name>BuptAssistant</Name>

@@ -39,12 +39,11 @@ namespace BuptAssistant.Ecard
 
         private async Task GetRecords(DateTime start, DateTime end, bool isSwiped)
         {
-            //if (EcardRecordsList.IsRefreshing) return;
-            //EcardRecordsList.IsRefreshing = true;
-
             RefreshIndicator.IsVisible = !isSwiped;
 
-            EcardSystem ecardSystem = new EcardSystem("2014210920", "221414", start, end);
+            string id = Application.Current.Properties["Ecard.id"] as string;
+            string password = Application.Current.Properties["Ecard.password"] as string;
+            EcardSystem ecardSystem = new EcardSystem(id, password, start, end);
             await ecardSystem.Login();
 
             var detail = await ecardSystem.GetDetail();
