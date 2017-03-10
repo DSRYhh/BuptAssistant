@@ -13,11 +13,11 @@
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.UserName}" 
                                         IsPassword="False"
                                         x:Name="EcardId"
-                                        Key="Ecard.Id"/>
+                                        Key="Ecard.id"/>
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.Password}"
                                            IsPassword="True"
                                            x:Name="EcardPassowrd"
-                                           Key="Ecard.Password"/>
+                                           Key="Ecard.password"/>
                 </TableSection>
             </TableView.Root>
         </TableView>

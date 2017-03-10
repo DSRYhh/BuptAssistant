@@ -33,11 +33,35 @@ namespace BuptAssistant.Settings
             return base.OnBackButtonPressed();
         }
 
-        private void UpdateSettingsData()
+        private async void UpdateSettingsData()
         {
-            var ecardPassword = this.EcardPassowrd.Value;
-            var ecardPasswordKey = this.EcardPassowrd.Key;
+            var result = await DisplayAlert(strings.Setting, strings.ConfirmSaveChanges, strings.OK, strings.No);
 
+            if (result)
+            {
+                var ecardPassword = this.EcardPassowrd.Value;
+                var ecardPasswordKey = this.EcardPassowrd.Key;
+                if (Application.Current.Properties.ContainsKey(ecardPasswordKey))
+                {
+                    Application.Current.Properties[ecardPasswordKey] = ecardPassword;
+                }
+                else
+                {
+                    Application.Current.Properties.Add(ecardPasswordKey,ecardPassword);
+                }
+                var ecardId = this.EcardId.Value;
+                var ecardIdKey = this.EcardId.Key;
+                if (Application.Current.Properties.ContainsKey(ecardIdKey))
+                {
+                    Application.Current.Properties[ecardIdKey] = ecardId;
+                }
+                else
+                {
+                    Application.Current.Properties.Add(ecardIdKey, ecardId);
+                }
+
+                await Application.Current.SavePropertiesAsync();
+            }
         }
     }
 }

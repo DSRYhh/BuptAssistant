@@ -80,6 +80,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 确定保存更改吗？.
+        /// </summary>
+        public static string ConfirmSaveChanges {
+            get {
+                return ResourceManager.GetString("ConfirmSaveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 从.
         /// </summary>
         public static string DateBeginHint {
