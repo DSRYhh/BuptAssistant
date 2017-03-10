@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{x:Static local:strings.MainPageTitle}"
-             xmlns:local="clr-namespace:BuptAssistant"
+             xmlns:local="clr-namespace:BuptAssistant;assembly=BuptAssistant"
              x:Class="BuptAssistant.MainPage">
 
     <Grid>
@@ -15,19 +15,23 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-            <Button x:Name="EcardButton"
-                Text="{x:Static local:strings.EcardPageTitle}" 
-                Clicked="EcardButton_Clicked"
-                BackgroundColor="Blue"
-                Grid.Row="0" 
-                Grid.Column="0"/>
-            <Button x:Name="TestButton"
-                Text="{x:Static local:strings.EcardPageTitle}" 
-                BackgroundColor="Navy"
-                Grid.Row="0" 
-                Grid.Column="1"/>
-        <BoxView Color="Red" Grid.Row="1" Grid.Column="0" />
-        <BoxView Color="Green" Grid.Row="1" Grid.Column="1" />
+        <Button x:Name="EcardButton"
+            Text="{x:Static local:strings.EcardPageTitle}" 
+            Clicked="EcardButton_Clicked"
+            BackgroundColor="#7171FF"
+            Grid.Row="0" 
+            Grid.Column="0"/>
+        <Button x:Name="TestButton"
+            Text="{x:Static local:strings.EcardPageTitle}" 
+            BackgroundColor="#FF765D"
+            Grid.Row="0" 
+            Grid.Column="1"/>
+        <Button Text="{x:Static local:strings.Setting}"
+                BackgroundColor="#81FF7B" 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                Clicked="SettingButton_OnClicked"/>
+
     </Grid>
 
 </ContentPage>

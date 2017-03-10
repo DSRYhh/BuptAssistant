@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BuptAssistant.Toolkit;
 using EcardData;
 using Syncfusion.SfChart.XForms;
 using Xamarin.Forms;
@@ -53,35 +54,47 @@ namespace BuptAssistant.Ecard
 
             string id = Application.Current.Properties["Ecard.id"] as string;
             string password = Application.Current.Properties["Ecard.password"] as string;
-            EcardSystem ecardSystem = new EcardSystem(id, password, startQueryTime, endQueryTime);
-            await ecardSystem.Login();
-
-            var detail = await ecardSystem.GetDetail();
-
-            Dictionary<DateTime, double> dailyRecords = new Dictionary<DateTime, double>();
-            for (DateTime date = startQueryTime; date <= endQueryTime; date = date.AddDays(1))
+            try
             {
-                dailyRecords.Add(date, 0);
-            }
-            foreach (var item in detail)
-            {
-                double amount = double.Parse(item.Amount);
-                DateTime date = item.OperatingDate.Date;
-                if (dailyRecords.ContainsKey(date))
+                EcardSystem ecardSystem = new EcardSystem(id, password, startQueryTime, endQueryTime);
+                await ecardSystem.Login();
+
+                var detail = await ecardSystem.GetDetail();
+
+                Dictionary<DateTime, double> dailyRecords = new Dictionary<DateTime, double>();
+                for (DateTime date = startQueryTime; date <= endQueryTime; date = date.AddDays(1))
                 {
-                    dailyRecords[date] += amount;
+                    dailyRecords.Add(date, 0);
                 }
-                else
+                foreach (var item in detail)
                 {
-                    dailyRecords.Add(date, amount);
+                    double amount = double.Parse(item.Amount);
+                    DateTime date = item.OperatingDate.Date;
+                    if (dailyRecords.ContainsKey(date))
+                    {
+                        dailyRecords[date] += amount;
+                    }
+                    else
+                    {
+                        dailyRecords.Add(date, amount);
+                    }
                 }
+
+                records.Clear();
+                foreach (var item in dailyRecords)
+                {
+                    records.Add(new ChartDataPoint(item.Key, item.Value));
+                }
+            }
+            catch (AuthenticationFailedException)
+            {
+                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
+                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
             }
 
-            records.Clear();
-            foreach (var item in dailyRecords)
-            {
-                records.Add(new ChartDataPoint(item.Key, item.Value));
-            }
 
             DataChart.IsVisible = true;
             LoadingIndicator.IsVisible = false;

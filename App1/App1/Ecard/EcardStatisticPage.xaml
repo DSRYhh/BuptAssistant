@@ -38,7 +38,7 @@
                         </chart:NumericalAxis>
                     </chart:SfChart.SecondaryAxis>
                     <chart:SfChart.Series>
-                        <chart:SplineAreaSeries x:Name="Line"/>
+                        <chart:AreaSeries x:Name="Line" StrokeColor="#856961F2" Color="#C92196F3"/>
                     </chart:SfChart.Series>
                 </chart:SfChart>
     </StackLayout>

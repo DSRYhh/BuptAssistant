@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EcardData;
 using Xamarin.Forms;
 using System.Linq;
+using BuptAssistant.Toolkit;
 
 namespace BuptAssistant.Ecard
 {
@@ -43,15 +44,27 @@ namespace BuptAssistant.Ecard
 
             string id = Application.Current.Properties["Ecard.id"] as string;
             string password = Application.Current.Properties["Ecard.password"] as string;
-            EcardSystem ecardSystem = new EcardSystem(id, password, start, end);
-            await ecardSystem.Login();
 
-            var detail = await ecardSystem.GetDetail();
-            detail.Sort((x, y) => y.OperatingDate.CompareTo(x.OperatingDate));
-            records.Clear();
-            foreach (var item in detail)
+            try
             {
-                records.Add(item);
+                EcardSystem ecardSystem = new EcardSystem(id, password, start, end);
+                await ecardSystem.Login();
+
+                var detail = await ecardSystem.GetDetail();
+                detail.Sort((x, y) => y.OperatingDate.CompareTo(x.OperatingDate));
+                records.Clear();
+                foreach (var item in detail)
+                {
+                    records.Add(item);
+                }
+            }
+            catch (AuthenticationFailedException)
+            {
+                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
+                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
             }
 
             RefreshIndicator.IsVisible = false;

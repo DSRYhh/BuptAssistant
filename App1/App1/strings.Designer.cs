@@ -23,7 +23,7 @@ namespace BuptAssistant {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class strings {
+    public class strings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -37,7 +37,7 @@ namespace BuptAssistant {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BuptAssistant.strings", typeof(strings).GetTypeInfo().Assembly);
@@ -52,7 +52,7 @@ namespace BuptAssistant {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -64,7 +64,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 提示.
         /// </summary>
-        internal static string Alert {
+        public static string Alert {
             get {
                 return ResourceManager.GetString("Alert", resourceCulture);
             }
@@ -73,7 +73,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 余额.
         /// </summary>
-        internal static string Balance {
+        public static string Balance {
             get {
                 return ResourceManager.GetString("Balance", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 从.
         /// </summary>
-        internal static string DateBeginHint {
+        public static string DateBeginHint {
             get {
                 return ResourceManager.GetString("DateBeginHint", resourceCulture);
             }
@@ -91,7 +91,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 到.
         /// </summary>
-        internal static string DateEndHint {
+        public static string DateEndHint {
             get {
                 return ResourceManager.GetString("DateEndHint", resourceCulture);
             }
@@ -100,7 +100,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 默认密码为身份证后六位.
         /// </summary>
-        internal static string DefaultByPersonalID {
+        public static string DefaultByPersonalID {
             get {
                 return ResourceManager.GetString("DefaultByPersonalID", resourceCulture);
             }
@@ -109,7 +109,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 此功能需要您的校园一卡通账号密码.
         /// </summary>
-        internal static string EcardNoLoginHint {
+        public static string EcardNoLoginHint {
             get {
                 return ResourceManager.GetString("EcardNoLoginHint", resourceCulture);
             }
@@ -118,7 +118,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 校园一卡通.
         /// </summary>
-        internal static string EcardPageTitle {
+        public static string EcardPageTitle {
             get {
                 return ResourceManager.GetString("EcardPageTitle", resourceCulture);
             }
@@ -127,7 +127,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 如果要使用一卡通功能，您必须提供您的一卡通账号和密码。我们保证不会上传您的凭据。.
         /// </summary>
-        internal static string GuideToInputEcardIDandPasswordMessage {
+        public static string GuideToInputEcardIDandPasswordMessage {
             get {
                 return ResourceManager.GetString("GuideToInputEcardIDandPasswordMessage", resourceCulture);
             }
@@ -136,25 +136,43 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 登录.
         /// </summary>
-        internal static string Login {
+        public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 登录失败.
+        /// </summary>
+        public static string LoginFailed {
+            get {
+                return ResourceManager.GetString("LoginFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 主页.
         /// </summary>
-        internal static string MainPageTitle {
+        public static string MainPageTitle {
             get {
                 return ResourceManager.GetString("MainPageTitle", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 网络错误.
+        /// </summary>
+        public static string NetworkError {
+            get {
+                return ResourceManager.GetString("NetworkError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 不.
         /// </summary>
-        internal static string No {
+        public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
             }
@@ -163,7 +181,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 好.
         /// </summary>
-        internal static string OK {
+        public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
             }
@@ -172,7 +190,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 密码.
         /// </summary>
-        internal static string Password {
+        public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
@@ -181,16 +199,25 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 查询.
         /// </summary>
-        internal static string Query {
+        public static string Query {
             get {
                 return ResourceManager.GetString("Query", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 设置.
+        /// </summary>
+        public static string Setting {
+            get {
+                return ResourceManager.GetString("Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 开始日期不能晚于结束日期.
         /// </summary>
-        internal static string StartDateAfterEndDate {
+        public static string StartDateAfterEndDate {
             get {
                 return ResourceManager.GetString("StartDateAfterEndDate", resourceCulture);
             }
@@ -199,7 +226,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 统计.
         /// </summary>
-        internal static string Statistic {
+        public static string Statistic {
             get {
                 return ResourceManager.GetString("Statistic", resourceCulture);
             }
@@ -208,7 +235,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 用户名.
         /// </summary>
-        internal static string UserName {
+        public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
             }
@@ -217,7 +244,7 @@ namespace BuptAssistant {
         /// <summary>
         ///   Looks up a localized string similar to 您的学号.
         /// </summary>
-        internal static string YourSchoolID {
+        public static string YourSchoolID {
             get {
                 return ResourceManager.GetString("YourSchoolID", resourceCulture);
             }

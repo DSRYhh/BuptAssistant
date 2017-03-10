@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BuptAssistant.Settings.EntryCell">
+    <StackLayout Orientation="Vertical">
+        <Label Text="{Binding Path=Label}"
+               x:Name="label"/>
+        <Entry Placeholder="{Binding Path=PlaceHolder}" 
+               x:Name="password" 
+               Text="{Binding Path=Value}"
+               IsPassword="{Binding Path=IsPassword}"/>
+    </StackLayout>
+</ViewCell>

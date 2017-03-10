@@ -144,8 +144,14 @@
   <data name="Login" xml:space="preserve">
     <value>登录</value>
   </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>登录失败</value>
+  </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>主页</value>
+  </data>
+  <data name="NetworkError" xml:space="preserve">
+    <value>网络错误</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>不</value>
@@ -158,6 +164,9 @@
   </data>
   <data name="Query" xml:space="preserve">
     <value>查询</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>设置</value>
   </data>
   <data name="StartDateAfterEndDate" xml:space="preserve">
     <value>开始日期不能晚于结束日期</value>

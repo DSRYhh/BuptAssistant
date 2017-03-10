@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using BuptAssistant.CampusNetwork;
+using BuptAssistant.Settings;
+using BuptAssistant.Toolkit;
 using Xamarin.Forms;
 using EcardData;
 using CampusNetwork;
@@ -43,7 +46,18 @@ namespace BuptAssistant
                     var ecardPassword = Application.Current.Properties["Ecard.password"] as string;
 
                     Device.BeginInvokeOnMainThread(async () => {
-                        await GetBalance(ecardId, ecardPassword);
+                        try
+                        {
+                            await GetBalance(ecardId, ecardPassword);
+                        }
+                        catch (AuthenticationFailedException)
+                        {
+                            await CrossPlatformFeatures.Toast(this,strings.Alert, strings.LoginFailed, strings.OK);
+                        }
+                        catch (System.Net.Http.HttpRequestException)
+                        {
+                            await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
+                        }
                     });
                 }
             }
@@ -81,6 +95,10 @@ namespace BuptAssistant
             return balance;
         }
 
-        
+
+        private async void SettingButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
+        }
     }
 }

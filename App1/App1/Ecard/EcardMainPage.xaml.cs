@@ -22,7 +22,6 @@ namespace BuptAssistant.Ecard
                     bool result = await DisplayAlert(strings.Alert, strings.GuideToInputEcardIDandPasswordMessage, strings.OK, strings.No);
                     if (result)
                     {
-                        //TODO guide to login page
                         await Navigation.PushAsync(new Ecard.EcardLoginPage());
                     }
                     else

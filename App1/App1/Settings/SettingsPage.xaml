@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:settings="clr-namespace:BuptAssistant.Settings;assembly=BuptAssistant"
+             xmlns:buptAssistant="clr-namespace:BuptAssistant;assembly=BuptAssistant"
+             x:Class="BuptAssistant.Settings.SettingsPage"
+             Title="{x:Static buptAssistant:strings.Setting}">
+  <ScrollView>
+    <StackLayout Padding="10">
+        <TableView Intent="Settings">
+            <TableView.Root>
+                <TableSection Title="{x:Static buptAssistant:strings.EcardPageTitle}">
+                    <settings:EntryCell Label="{x:Static buptAssistant:strings.UserName}" 
+                                        IsPassword="False"
+                                        x:Name="EcardId"
+                                        Key="Ecard.Id"/>
+                    <settings:EntryCell Label="{x:Static buptAssistant:strings.Password}"
+                                           IsPassword="True"
+                                           x:Name="EcardPassowrd"
+                                           Key="Ecard.Password"/>
+                </TableSection>
+            </TableView.Root>
+        </TableView>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

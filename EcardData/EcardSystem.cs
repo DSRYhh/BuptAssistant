@@ -191,7 +191,7 @@ namespace EcardData
                 }
                 else
                 {
-                    throw new WebException() { Source = "GetCookie" };
+                    throw new AuthenticationFailedException();
                 }
             }
 
