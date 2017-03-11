@@ -27,11 +27,11 @@ namespace BuptAssistant.Settings
             base.OnDisappearing();
         }
 
-        protected override bool OnBackButtonPressed()
-        {
-            UpdateSettingsData();
-            return base.OnBackButtonPressed();
-        }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    UpdateSettingsData();
+        //    return base.OnBackButtonPressed();
+        //}
 
         private async void UpdateSettingsData()
         {

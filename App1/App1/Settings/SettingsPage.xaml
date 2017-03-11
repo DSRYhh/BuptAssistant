@@ -11,10 +11,12 @@
             <TableView.Root>
                 <TableSection Title="{x:Static buptAssistant:strings.EcardPageTitle}">
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.UserName}" 
+                                        PlaceHolder="{x:Static buptAssistant:strings.YourSchoolID}"
                                         IsPassword="False"
                                         x:Name="EcardId"
                                         Key="Ecard.id"/>
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.Password}"
+                                        PlaceHolder="{x:Static buptAssistant:strings.DefaultByPersonalID}"
                                            IsPassword="True"
                                            x:Name="EcardPassowrd"
                                            Key="Ecard.password"/>
