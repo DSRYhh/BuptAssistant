@@ -6,21 +6,27 @@
              x:Class="BuptAssistant.Settings.SettingsPage"
              Title="{x:Static buptAssistant:strings.Setting}">
   <ScrollView>
-    <StackLayout Padding="10">
-        <TableView Intent="Settings">
+    <StackLayout Padding="20" 
+                 Orientation="Vertical"
+                 Margin="20,0,10,0">
+        <TableView Intent="Settings" RowHeight="50">
             <TableView.Root>
-                <TableSection Title="{x:Static buptAssistant:strings.EcardPageTitle}">
+                <TableSection Title="{x:Static buptAssistant:strings.EcardPageTitle}" >
+                    <SwitchCell x:Name="EcardEnableSwitcher" 
+                                Text="{x:Static buptAssistant:strings.EcardEnable}"/>
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.UserName}" 
                                         PlaceHolder="{x:Static buptAssistant:strings.YourSchoolID}"
+                                        Height="50"
+                                        KeyboardType="Numeric"
                                         IsPassword="False"
                                         x:Name="EcardId"
                                         Key="Ecard.id"/>
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.Password}"
                                         PlaceHolder="{x:Static buptAssistant:strings.DefaultByPersonalID}"
-                                           IsPassword="True"
-                                           x:Name="EcardPassowrd"
-                                           Key="Ecard.password"/>
-                </TableSection>
+                                        IsPassword="True"
+                                        x:Name="EcardPassowrd"
+                                        Key="Ecard.password"/>
+                    </TableSection>
             </TableView.Root>
         </TableView>
     </StackLayout>

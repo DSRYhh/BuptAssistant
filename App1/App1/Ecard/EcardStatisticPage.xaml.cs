@@ -85,6 +85,9 @@ namespace BuptAssistant.Ecard
                 {
                     records.Add(new ChartDataPoint(item.Key, item.Value));
                 }
+
+                DataChart.IsVisible = true;
+
             }
             catch (AuthenticationFailedException)
             {
@@ -96,7 +99,6 @@ namespace BuptAssistant.Ecard
             }
 
 
-            DataChart.IsVisible = true;
             LoadingIndicator.IsVisible = false;
         }
 

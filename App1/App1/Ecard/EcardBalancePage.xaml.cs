@@ -66,6 +66,10 @@ namespace BuptAssistant.Ecard
             {
                 await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
             }
+            catch (Exception e)
+            {
+                var i = e;
+            }
 
             RefreshIndicator.IsVisible = false;
             EcardRecordsList.IsRefreshing = false;

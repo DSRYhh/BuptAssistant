@@ -16,22 +16,21 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Button x:Name="EcardButton"
-            Text="{x:Static local:strings.EcardPageTitle}" 
+            Text="{x:Static local:strings.EcardPageTitle}"
+            Image="icon_ecard.png"
+            ContentLayout="Top,10"
             Clicked="EcardButton_Clicked"
-            BackgroundColor="#7171FF"
+            BackgroundColor="#2CC2FF"
             Grid.Row="0" 
             Grid.Column="0"/>
-        <Button x:Name="TestButton"
-            Text="{x:Static local:strings.EcardPageTitle}" 
-            BackgroundColor="#FF765D"
-            Grid.Row="0" 
-            Grid.Column="1"/>
         <Button Text="{x:Static local:strings.Setting}"
+                Image="icon_settings.png"
+                ContentLayout="Top,10"
+                x:Name="SettingsButton"
                 BackgroundColor="#81FF7B" 
-                Grid.Row="1" 
-                Grid.Column="0" 
+                Grid.Row="0" 
+                Grid.Column="1" 
                 Clicked="SettingButton_OnClicked"/>
-
     </Grid>
 
 </ContentPage>

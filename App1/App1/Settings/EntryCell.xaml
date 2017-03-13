@@ -8,12 +8,15 @@
             <ColumnDefinition Width="0.8*"/>
         </Grid.ColumnDefinitions>
         <Label Text="{Binding Path=Label}"
+               VerticalOptions="CenterAndExpand"
                x:Name="label"/>
         <Entry Placeholder="{Binding Path=PlaceHolder}" 
                x:Name="password" 
+               Keyboard="{Binding KeyboardType}"
                Text="{Binding Path=Value}"
                IsPassword="{Binding Path=IsPassword}"
-               VerticalOptions="CenterAndExpand"
+               VerticalOptions="End"
+               FontSize="15"
                Grid.Column="1"/>
     </Grid>
 </ViewCell>

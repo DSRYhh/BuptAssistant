@@ -20,7 +20,9 @@
         <ActivityIndicator Color="Red"
                            IsRunning="True"
                            IsVisible="False"
-                           x:Name="RefreshIndicator"/>
+                           x:Name="RefreshIndicator"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
         
         <ListView x:Name="EcardRecordsList"
               IsPullToRefreshEnabled="True"

@@ -135,6 +135,9 @@
   <data name="DefaultByPersonalID" xml:space="preserve">
     <value>默认密码为身份证后六位</value>
   </data>
+  <data name="EcardEnable" xml:space="preserve">
+    <value>校园卡功能开关</value>
+  </data>
   <data name="EcardNoLoginHint" xml:space="preserve">
     <value>此功能需要您的校园一卡通账号密码</value>
   </data>

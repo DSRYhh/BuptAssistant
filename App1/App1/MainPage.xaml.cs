@@ -17,47 +17,46 @@ namespace BuptAssistant
 {
     public partial class MainPage
     {
-        private HashSet<string> needLoginSsid = new HashSet<string>() {"BlackTea"};
+        private HashSet<string> _needLoginSsid = new HashSet<string>() {"BlackTea"};
         public MainPage()
         {
             InitializeComponent();
+        }
 
-            ////Network
-            //CrossConnectivity.Current.ConnectivityTypeChanged += async (sender, e) =>
-            //{
-            //    //var status = DependencyService.Get<INetworkStatus>().GetNetworkStatus();
-
-            //    //if (status.Type == NetworkType.Wifi || needLoginSsid.Contains(status.Name))
-            //    //{
-            //    //await CampusNetworkLogin.Login("2014210920", "notlove*");
-            //    //}
-            //};
-
-
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             //Ecard
             if (Application.Current.Properties.ContainsKey("Ecard.enable"))
             {
-                bool isEcardEnable = (bool) Application.Current.Properties["Ecard.enable"];
+                bool isEcardEnable = (bool)Application.Current.Properties["Ecard.enable"];
                 if (isEcardEnable)
                 {
                     //get balance to show on the button
                     var ecardId = Application.Current.Properties["Ecard.id"] as string;
                     var ecardPassword = Application.Current.Properties["Ecard.password"] as string;
-
-                    Device.BeginInvokeOnMainThread(async () => {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        this.EcardButton.IsEnabled = true;
                         try
                         {
                             await GetBalance(ecardId, ecardPassword);
                         }
                         catch (AuthenticationFailedException)
                         {
-                            await CrossPlatformFeatures.Toast(this,strings.Alert, strings.LoginFailed, strings.OK);
+                            await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
                         }
                         catch (System.Net.Http.HttpRequestException)
                         {
                             await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
                         }
+                    });
+                }
+                else
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        EcardButton.IsEnabled = false;
                     });
                 }
             }
@@ -69,7 +68,6 @@ namespace BuptAssistant
                 });
             }
         }
-
 
         private async void EcardButton_Clicked(object sender, EventArgs e)
         {

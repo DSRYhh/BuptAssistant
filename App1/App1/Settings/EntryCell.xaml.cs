@@ -22,6 +22,10 @@ namespace BuptAssistant.Settings
             BindableProperty.Create("Key", typeof(string), typeof(EntryCell), null, BindingMode.TwoWay);
         public static readonly BindableProperty IsPasswordProperty =
             BindableProperty.Create("IsPassword", typeof(bool), typeof(EntryCell), false, BindingMode.TwoWay);
+
+        public static readonly BindableProperty KeyboardProperty =
+            BindableProperty.Create("KeyboardType", typeof(Keyboard), typeof(EntryCell), null, BindingMode.TwoWay);
+
         public string PlaceHolder
         {
             get { return (string)GetValue(PlaceHolderProperty); }
@@ -46,6 +50,13 @@ namespace BuptAssistant.Settings
         {
             get { return (bool)GetValue(IsPasswordProperty); }
             set { SetValue(IsPasswordProperty, value); }
+        }
+
+        public Keyboard KeyboardType
+        {
+            get { return (Keyboard) GetValue(KeyboardProperty); }
+            set { SetValue(KeyboardProperty,value);}
+
         }
 
         public EntryCell()

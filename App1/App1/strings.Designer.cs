@@ -116,6 +116,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 校园卡功能开关.
+        /// </summary>
+        public static string EcardEnable {
+            get {
+                return ResourceManager.GetString("EcardEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 此功能需要您的校园一卡通账号密码.
         /// </summary>
         public static string EcardNoLoginHint {
