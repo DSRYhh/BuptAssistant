@@ -50,7 +50,9 @@ namespace BuptAssistant.Ecard
 
         private async Task GetRecords(DateTime startQueryTime, DateTime endQueryTime)
         {
+            //TODO AuthenticationFailedException will not be thrown in Android.
             LoadingIndicator.IsVisible = true;
+            this.Promotion.IsVisible = false;
 
             string id = Application.Current.Properties["Ecard.id"] as string;
             string password = Application.Current.Properties["Ecard.password"] as string;
@@ -91,11 +93,23 @@ namespace BuptAssistant.Ecard
             }
             catch (AuthenticationFailedException)
             {
-                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
+                this.Promotion.IsVisible = true;
+                this.Promotion.Text = strings.LoginFailed;
+                DataChart.IsVisible = false;
+                //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
             }
             catch (System.Net.Http.HttpRequestException)
             {
-                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
+                this.Promotion.IsVisible = true;
+                this.Promotion.Text = strings.NetworkError;
+                DataChart.IsVisible = false;
+                //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
+            }
+            catch (TaskCanceledException)
+            {
+                this.Promotion.IsVisible = true;
+                this.Promotion.Text = strings.NetworkTimeout;
+                DataChart.IsVisible = false;
             }
 
 

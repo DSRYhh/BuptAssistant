@@ -23,6 +23,9 @@
                            x:Name="RefreshIndicator"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
+        <Label x:Name="Promption"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
         
         <ListView x:Name="EcardRecordsList"
               IsPullToRefreshEnabled="True"

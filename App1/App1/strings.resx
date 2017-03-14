@@ -159,6 +159,9 @@
   <data name="NetworkError" xml:space="preserve">
     <value>网络错误</value>
   </data>
+  <data name="NetworkTimeout" xml:space="preserve">
+    <value>网络超时</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>不</value>
   </data>

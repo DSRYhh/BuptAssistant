@@ -24,6 +24,10 @@
             <ActivityIndicator x:Name="LoadingIndicator"
                                IsRunning="True"
                                IsVisible="False"/>
+            <Label x:Name="Promotion"
+                   IsVisible="False"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
             <chart:SfChart HorizontalOptions="FillAndExpand"
                            VerticalOptions="FillAndExpand"
                            x:Name="DataChart">

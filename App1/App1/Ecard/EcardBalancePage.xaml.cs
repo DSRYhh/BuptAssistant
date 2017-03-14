@@ -41,6 +41,7 @@ namespace BuptAssistant.Ecard
         private async Task GetRecords(DateTime start, DateTime end, bool isSwiped)
         {
             RefreshIndicator.IsVisible = !isSwiped;
+            Promption.IsVisible = false;
 
             string id = Application.Current.Properties["Ecard.id"] as string;
             string password = Application.Current.Properties["Ecard.password"] as string;
@@ -57,19 +58,28 @@ namespace BuptAssistant.Ecard
                 {
                     records.Add(item);
                 }
+
+                EcardRecordsList.IsVisible = true;
             }
             catch (AuthenticationFailedException)
             {
-                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
+                EcardRecordsList.IsVisible = false;
+                Promption.Text = strings.LoginFailed;
+                Promption.IsVisible = true;
             }
             catch (System.Net.Http.HttpRequestException)
             {
-                await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
+                EcardRecordsList.IsVisible = false;
+                Promption.Text = strings.NetworkError;
+                Promption.IsVisible = true;
             }
-            catch (Exception e)
+            catch (TaskCanceledException)
             {
-                var i = e;
+                EcardRecordsList.IsVisible = false;
+                Promption.Text = strings.NetworkTimeout;
+                Promption.IsVisible = true;
             }
+
 
             RefreshIndicator.IsVisible = false;
             EcardRecordsList.IsRefreshing = false;

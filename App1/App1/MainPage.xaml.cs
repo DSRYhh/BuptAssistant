@@ -44,12 +44,17 @@ namespace BuptAssistant
                         }
                         catch (AuthenticationFailedException)
                         {
-                            await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
+                            //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
                         }
                         catch (System.Net.Http.HttpRequestException)
                         {
-                            await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
+                            //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
                         }
+                        catch (TaskCanceledException)
+                        {
+                            //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkTimeout, strings.OK);
+                        }
+                        
                     });
                 }
                 else

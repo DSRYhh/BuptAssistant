@@ -188,6 +188,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 网络超时.
+        /// </summary>
+        public static string NetworkTimeout {
+            get {
+                return ResourceManager.GetString("NetworkTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 不.
         /// </summary>
         public static string No {
