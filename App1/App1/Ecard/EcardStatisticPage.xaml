@@ -7,16 +7,23 @@
 
     
         <StackLayout Orientation="Vertical"
-                     x:Name="MainStackLayout">
-            <StackLayout Orientation="Horizontal">
-                <Label Text="{x:Static buptAssistant:strings.DateBeginHint}"/>
+                     x:Name="MainStackLayout"
+                     Padding="10">
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="{x:Static buptAssistant:strings.DateBeginHint}"
+                       VerticalOptions="Center"/>
                 <DatePicker x:Name="StartDatePicker"
+                            Format="yy/M/d"
                                     DateSelected="StartDatePicker_DateSelected"
                                     MaximumDate="{Binding EndDatePicker.Date}"/>
-                <Label Text="{x:Static buptAssistant:strings.DateEndHint}"/>
+                <Label Text="{x:Static buptAssistant:strings.DateEndHint}"
+                       VerticalOptions="Center"/>
                 <DatePicker x:Name="EndDatePicker"
+                            Format="yy/M/d"
                                     MinimumDate="{Binding StartDatePicker.Date}"/>
                 <Button x:Name="QueryButton"
+                        BackgroundColor="Accent"
                                 Text="{x:Static buptAssistant:strings.Query}"
                                 Clicked="QueryButton_Clicked"/>
             </StackLayout>  

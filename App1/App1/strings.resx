@@ -123,6 +123,12 @@
   <data name="Balance" xml:space="preserve">
     <value>余额</value>
   </data>
+  <data name="CampusNetwork" xml:space="preserve">
+    <value>校园网</value>
+  </data>
+  <data name="CampusNetworkEnable" xml:space="preserve">
+    <value>校园网功能开关</value>
+  </data>
   <data name="ConfirmSaveChanges" xml:space="preserve">
     <value>确定保存更改吗？</value>
   </data>

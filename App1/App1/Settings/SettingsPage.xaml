@@ -6,8 +6,7 @@
              x:Class="BuptAssistant.Settings.SettingsPage"
              Title="{x:Static buptAssistant:strings.Setting}">
   <ScrollView>
-    <StackLayout Padding="20" 
-                 Orientation="Vertical"
+    <StackLayout Orientation="Vertical"
                  Margin="20,0,10,0">
         <TableView Intent="Settings" RowHeight="50">
             <TableView.Root>
@@ -26,6 +25,24 @@
                                         IsPassword="True"
                                         x:Name="EcardPassowrd"
                                         Key="Ecard.password"/>
+                </TableSection>
+                <TableSection Title="{x:Static buptAssistant:strings.CampusNetwork}">
+                    <SwitchCell x:Name="CampusNetworkEnableSwitcher"
+                                Text="{x:Static buptAssistant:strings.CampusNetworkEnable}"/>
+                        <settings:EntryCell Label="{x:Static buptAssistant:strings.UserName}" 
+                                        PlaceHolder="{x:Static buptAssistant:strings.YourSchoolID}"
+                                        KeyboardType="Numeric"
+                                        IsPassword="False"
+                                        x:Name="CampusNetworkId"
+                                        Key="CampusNetwork.id"/>
+                        <settings:EntryCell Label="{x:Static buptAssistant:strings.Password}"
+                                        PlaceHolder="{x:Static buptAssistant:strings.DefaultByPersonalID}"
+                                        IsPassword="True"
+                                        x:Name="CampusNetworkPassowrd"
+                                        Key="CampusNetwork.password"/>
+                        <ViewCell>
+                            <Button/>
+                        </ViewCell>
                     </TableSection>
             </TableView.Root>
         </TableView>

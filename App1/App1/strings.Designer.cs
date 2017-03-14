@@ -80,6 +80,24 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 校园网.
+        /// </summary>
+        public static string CampusNetwork {
+            get {
+                return ResourceManager.GetString("CampusNetwork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 校园网功能开关.
+        /// </summary>
+        public static string CampusNetworkEnable {
+            get {
+                return ResourceManager.GetString("CampusNetworkEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 确定保存更改吗？.
         /// </summary>
         public static string ConfirmSaveChanges {

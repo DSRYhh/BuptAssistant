@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Collections;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -25,13 +26,37 @@ namespace BuptAssistant.Droid.NativeCode
 
         protected override async void OnHandleIntent(Intent intent)
         {
-            //TODO change hard code SSID to user settings
-            BuptAssistant.Droid.NativeCode.NetworkStatus statusGetter = new NetworkStatus();
-            var status = statusGetter.GetNetworkStatus();
-            if (status.Type == NetworkType.Wifi || status.Name == "BlackTea")
+            if (Xamarin.Forms.Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
             {
-                //TODO change hard code user name and password to user input
-                await CampusNetworkLogin.Login("2014210920", "notlove*");
+                System.Collections.Generic.HashSet<string> nameList =
+                    Xamarin.Forms.Application.Current.Properties["CampusNetwork.networkName"] as
+                        System.Collections.Generic.HashSet<string>;
+
+                if (nameList != null)
+                {
+                    BuptAssistant.Droid.NativeCode.NetworkStatus statusGetter = new NetworkStatus();
+                    var status = statusGetter.GetNetworkStatus();
+                    if (status.Type == NetworkType.Wifi || nameList.Contains(status.Name))
+                    {
+                        if (Xamarin.Forms.Application.Current.Properties.ContainsKey("CampusNetwork.enable"))
+                        {
+                            bool campusNetworkEnable =
+                                (bool)Xamarin.Forms.Application.Current.Properties["CampusNetwork.enable"];
+                            if (campusNetworkEnable)
+                            {
+                                if (Xamarin.Forms.Application.Current.Properties.ContainsKey("CampusNetwork.id") &&
+                                    Xamarin.Forms.Application.Current.Properties.ContainsKey("CampusNetwork.password"))
+                                {
+                                    var campusNetworkId = Xamarin.Forms.Application.Current.Properties["CampusNetwork.id"] as string;
+                                    var campusNetworkPassword = Xamarin.Forms.Application.Current
+                                        .Properties["CampusNetwork.password"] as string;
+
+                                    await CampusNetworkLogin.Login(campusNetworkId, campusNetworkPassword);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -44,7 +69,6 @@ namespace BuptAssistant.Droid.NativeCode
         {
             Intent serviceIntent = new Intent(context, typeof(CampusNetworkService));
             context.StartService(serviceIntent);
-            //TODO Start a service to log in.
         }
     }
 }

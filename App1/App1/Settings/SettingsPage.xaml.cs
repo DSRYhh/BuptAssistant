@@ -46,9 +46,9 @@ namespace BuptAssistant.Settings
 
         private async void UpdateSettingsData()
         {
-            var result = await DisplayAlert(strings.Setting, strings.ConfirmSaveChanges, strings.OK, strings.No);
+            //var result = await DisplayAlert(strings.Setting, strings.ConfirmSaveChanges, strings.OK, strings.No);
 
-            if (result)
+            //if (result)
             {
                 
                 var ecardEnable = this.EcardEnableSwitcher.On;
