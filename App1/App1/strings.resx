@@ -141,6 +141,9 @@
   <data name="DefaultByPersonalID" xml:space="preserve">
     <value>默认密码为身份证后六位</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <data name="EcardEnable" xml:space="preserve">
     <value>校园卡功能开关</value>
   </data>
@@ -182,6 +185,12 @@
   </data>
   <data name="Setting" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="Ssid" xml:space="preserve">
+    <value>SSID</value>
+  </data>
+  <data name="SsidList" xml:space="preserve">
+    <value>SSID列表</value>
   </data>
   <data name="StartDateAfterEndDate" xml:space="preserve">
     <value>开始日期不能晚于结束日期</value>

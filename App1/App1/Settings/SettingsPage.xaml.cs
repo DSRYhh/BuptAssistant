@@ -46,9 +46,6 @@ namespace BuptAssistant.Settings
 
         private async void UpdateSettingsData()
         {
-            //var result = await DisplayAlert(strings.Setting, strings.ConfirmSaveChanges, strings.OK, strings.No);
-
-            //if (result)
             {
                 
                 var ecardEnable = this.EcardEnableSwitcher.On;
@@ -94,6 +91,11 @@ namespace BuptAssistant.Settings
 
                 await Application.Current.SavePropertiesAsync();
             }
+        }
+
+        private async void GuideToSsidCollectionPageButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CampusNetworkSsidCollectionPage());
         }
     }
 }

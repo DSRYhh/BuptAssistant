@@ -134,6 +134,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 删除.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 校园卡功能开关.
         /// </summary>
         public static string EcardEnable {
@@ -256,6 +265,24 @@ namespace BuptAssistant {
         public static string Setting {
             get {
                 return ResourceManager.GetString("Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SSID.
+        /// </summary>
+        public static string Ssid {
+            get {
+                return ResourceManager.GetString("Ssid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SSID列表.
+        /// </summary>
+        public static string SsidList {
+            get {
+                return ResourceManager.GetString("SsidList", resourceCulture);
             }
         }
         

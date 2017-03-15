@@ -41,7 +41,13 @@
                                         x:Name="CampusNetworkPassowrd"
                                         Key="CampusNetwork.password"/>
                         <ViewCell>
-                            <Button/>
+                            <StackLayout VerticalOptions="Center">
+                                <Button x:Name="GuideToSsidCollectionPageButton"
+                                    Text="{x:Static buptAssistant:strings.SsidList}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Clicked="GuideToSsidCollectionPageButton_OnClicked"/>    
+                            </StackLayout>
                         </ViewCell>
                     </TableSection>
             </TableView.Root>

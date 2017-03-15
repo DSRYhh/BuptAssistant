@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buptAssistant="clr-namespace:BuptAssistant;assembly=BuptAssistant"
+             x:Class="BuptAssistant.Settings.CampusNetworkSsidCollectionPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="SsidList"
+                  HorizontalOptions="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="DeleteItem" 
+                                      CommandParameter="{Binding .}"
+                                      Text="{x:Static buptAssistant:strings.Delete}" />
+                        </ViewCell.ContextActions>
+                        <StackLayout>
+                            <Label Text="{Binding .}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal" Grid.Row="1">
+            <Entry Placeholder="{x:Static buptAssistant:strings.Ssid}"
+                   HorizontalOptions="CenterAndExpand"
+                   x:Name="NewSsid"
+                   IsVisible="False"
+                   Completed="NewSsid_OnCompleted"/>
+        </StackLayout>
+        <Button x:Name="AddNewSsidButton"
+                Clicked="AddNewSsidButton_OnClicked"
+                Image="icon_add_small.png"
+                Grid.Row="2"/>
+    </Grid>
+</ContentPage>
