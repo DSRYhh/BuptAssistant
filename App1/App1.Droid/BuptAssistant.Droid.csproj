@@ -151,6 +151,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="NativeCode\CampusNetworkService.cs" />
+    <Compile Include="NativeCode\FileHelper.cs" />
     <Compile Include="NativeCode\NetworkStatus.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
