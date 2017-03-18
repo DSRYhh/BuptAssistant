@@ -89,6 +89,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 校园网已连接。.
+        /// </summary>
+        public static string CampusNetworkConnected {
+            get {
+                return ResourceManager.GetString("CampusNetworkConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 校园网功能开关.
         /// </summary>
         public static string CampusNetworkEnable {

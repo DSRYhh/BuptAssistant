@@ -126,6 +126,9 @@
   <data name="CampusNetwork" xml:space="preserve">
     <value>校园网</value>
   </data>
+  <data name="CampusNetworkConnected" xml:space="preserve">
+    <value>校园网已连接。</value>
+  </data>
   <data name="CampusNetworkEnable" xml:space="preserve">
     <value>校园网功能开关</value>
   </data>
