@@ -13,10 +13,14 @@ namespace BuptAssistant.Settings.Ssid
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<SsidDatabaseItem>().Wait();
+            
         }
 
         public Task<List<SsidDatabaseItem>> GetItemsAsync()
         {
+            var database = _database;
+            var table = database.Table<SsidDatabaseItem>();
+
             return _database.Table<SsidDatabaseItem>().ToListAsync();
         }
 

@@ -40,8 +40,11 @@
                                         IsPassword="True"
                                         x:Name="CampusNetworkPassowrd"
                                         Key="CampusNetwork.password"/>
+                        <settings:EntryCell Label="{x:Static buptAssistant:strings.Ssid}"
+                                            Key="CampusNetwork.networkName"
+                                            x:Name="CampusNetworkSsid"/>
                         <ViewCell>
-                            <StackLayout VerticalOptions="Center">
+                            <StackLayout VerticalOptions="Center" IsVisible="False">
                                 <Button x:Name="GuideToSsidCollectionPageButton"
                                     Text="{x:Static buptAssistant:strings.SsidList}"
                                     HorizontalOptions="Center"

@@ -36,6 +36,27 @@ namespace BuptAssistant.Settings
             {
                 this.EcardEnableSwitcher.On = false;
             }
+            if (Application.Current.Properties.ContainsKey("CampusNetwork.enable"))
+            {
+                this.CampusNetworkEnableSwitcher.On = (bool)Application.Current.Properties["CampusNetwork.enable"];
+            }
+            else
+            {
+                this.CampusNetworkEnableSwitcher.On = false;
+            }
+
+            if (Application.Current.Properties.ContainsKey("CampusNetwork.id"))
+            {
+                this.CampusNetworkId.Value = Application.Current.Properties["CampusNetwork.id"] as string;
+            }
+            if (Application.Current.Properties.ContainsKey("CampusNetwork.password"))
+            {
+                this.CampusNetworkPassowrd.Value = Application.Current.Properties["CampusNetwork.password"] as string;
+            }
+            if (Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
+            {
+                this.CampusNetworkSsid.Value = Application.Current.Properties["CampusNetwork.networkName"] as string;
+            }
         }
 
         protected override void OnDisappearing()
@@ -48,7 +69,7 @@ namespace BuptAssistant.Settings
         {
             {
                 
-                var ecardEnable = this.EcardEnableSwitcher.On;
+                var ecardEnable = EcardEnableSwitcher.On;
 
                 if (ecardEnable)
                 {
@@ -79,6 +100,15 @@ namespace BuptAssistant.Settings
                         Application.Current.Properties.Add(ecardIdKey, ecardId);
                     }
                 }
+
+                if (Application.Current.Properties.ContainsKey("CampusNetwork.enable"))
+                {
+                    Application.Current.Properties["CampusNetwork.enable"] = CampusNetworkEnableSwitcher.On;
+                }
+                else
+                {
+                    Application.Current.Properties.Add("CampusNetwork.enable",CampusNetworkEnableSwitcher.On);
+                }
                 
                 if (Application.Current.Properties.ContainsKey("Ecard.enable"))
                 {
@@ -87,6 +117,33 @@ namespace BuptAssistant.Settings
                 else
                 {
                     Application.Current.Properties.Add("Ecard.enable",this.EcardEnableSwitcher.On);
+                }
+
+                if (Application.Current.Properties.ContainsKey(CampusNetworkId.Key))
+                {
+                    Application.Current.Properties[CampusNetworkId.Key] = CampusNetworkId.Value;
+                }
+                else
+                {
+                    Application.Current.Properties.Add(CampusNetworkId.Key,CampusNetworkId.Value);
+                }
+
+                if (Application.Current.Properties.ContainsKey(CampusNetworkPassowrd.Key))
+                {
+                    Application.Current.Properties[CampusNetworkPassowrd.Key] = CampusNetworkPassowrd.Value;
+                }
+                else
+                {
+                    Application.Current.Properties.Add(CampusNetworkPassowrd.Key,CampusNetworkPassowrd.Value);
+                }
+
+                if (Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
+                {
+                    Application.Current.Properties["CampusNetwork.networkName"] = this.CampusNetworkSsid.Value;
+                }
+                else
+                {
+                    Application.Current.Properties.Add("CampusNetwork.networkName", CampusNetworkSsid.Value);
                 }
 
                 await Application.Current.SavePropertiesAsync();

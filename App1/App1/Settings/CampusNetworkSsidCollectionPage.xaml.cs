@@ -23,7 +23,7 @@ namespace BuptAssistant.Settings
             GetSsidList();
         }
 
-        private void GetSsidList()
+        private async void GetSsidList()
         {
             if (Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
             {

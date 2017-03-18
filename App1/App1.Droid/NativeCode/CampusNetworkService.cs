@@ -28,15 +28,17 @@ namespace BuptAssistant.Droid.NativeCode
         {
             if (Xamarin.Forms.Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
             {
-                System.Collections.Generic.HashSet<string> nameList =
-                    Xamarin.Forms.Application.Current.Properties["CampusNetwork.networkName"] as
-                        System.Collections.Generic.HashSet<string>;
+                //System.Collections.Generic.HashSet<string> nameList =
+                //    Xamarin.Forms.Application.Current.Properties["CampusNetwork.networkName"] as
+                //        System.Collections.Generic.HashSet<string>;
 
-                if (nameList != null)
+                string ssid = Xamarin.Forms.Application.Current.Properties["CampusNetwork.networkName"] as string;
+
+                if (ssid != null)
                 {
                     BuptAssistant.Droid.NativeCode.NetworkStatus statusGetter = new NetworkStatus();
                     var status = statusGetter.GetNetworkStatus();
-                    if (status.Type == NetworkType.Wifi || nameList.Contains(status.Name))
+                    if (status.Type == NetworkType.Wifi || ssid.Equals(status.Name))
                     {
                         if (Xamarin.Forms.Application.Current.Properties.ContainsKey("CampusNetwork.enable"))
                         {
