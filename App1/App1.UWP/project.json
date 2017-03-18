@@ -2,10 +2,10 @@
   "dependencies": {
     "Microsoft.Bcl": "1.1.10",
     "Microsoft.Bcl.Build": "1.0.21",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.1",
     "Syncfusion.Xamarin.SfChart": "15.1.0.37",
     "Xam.Plugin.Connectivity": "2.3.1.55-beta",
-    "Xamarin.Forms": "2.3.3.180"
+    "Xamarin.Forms": "2.3.3.193"
   },
   "frameworks": {
     "uap10.0": {}
