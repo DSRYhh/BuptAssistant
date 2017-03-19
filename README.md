@@ -10,7 +10,7 @@ Visual Studio 2015 or above. Xamarin Studio maybe OK but I have never tried.
 Xamarin.Forms
 ### Target Platform
 
- - Universal Windows Platform **(Not available in latest version)**
+ - ~~Universal Windows Platform~~ **(Not available in latest version)**
  - Android
 
 ### NuGet Package Dependancy
