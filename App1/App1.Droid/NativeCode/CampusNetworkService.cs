@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using BuptAssistant.CampusNetwork;
+using BuptAssistant.Toolkit;
 using CampusNetwork;
 using Xamarin.Forms;
 
@@ -55,6 +56,7 @@ namespace BuptAssistant.Droid.NativeCode
 
                                     await CampusNetworkLogin.Login(campusNetworkId, campusNetworkPassword);
                                     PublishNotification();
+                                    
                                 }
                             }
                         }
