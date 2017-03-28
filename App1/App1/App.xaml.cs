@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BuptAssistant.Settings.Ssid;
 using BuptAssistant.Toolkit;
 using Xamarin.Forms;
 
@@ -10,12 +9,6 @@ namespace BuptAssistant
 {
     public partial class App : Application
     {
-        private static SsidTable _settingItemsDatabase;
-
-        public static SsidTable SettingItemsDatabase => _settingItemsDatabase ??
-                                                               (_settingItemsDatabase =
-                                                                   new SsidTable(
-                                                                       DependencyService.Get<IFileHelper>().GetLocalFilePath("SettingSQLite.db3")));
 
         public App()
         {

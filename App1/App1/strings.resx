@@ -144,8 +144,29 @@
   <data name="DefaultByPersonalID" xml:space="preserve">
     <value>默认密码为身份证后六位</value>
   </data>
+  <data name="Degree" xml:space="preserve">
+    <value>度</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
+  </data>
+  <data name="DormEleBalance" xml:space="preserve">
+    <value>电费余量</value>
+  </data>
+  <data name="DormEleBill" xml:space="preserve">
+    <value>宿舍电费</value>
+  </data>
+  <data name="DormEleEnable" xml:space="preserve">
+    <value>宿舍电费监控开关</value>
+  </data>
+  <data name="DormId" xml:space="preserve">
+    <value>宿舍号</value>
+  </data>
+  <data name="DormIdExample" xml:space="preserve">
+    <value>例如：1-101</value>
+  </data>
+  <data name="DormIdInvaild" xml:space="preserve">
+    <value>无效的宿舍号</value>
   </data>
   <data name="EcardEnable" xml:space="preserve">
     <value>校园卡功能开关</value>
@@ -200,6 +221,9 @@
   </data>
   <data name="Statistic" xml:space="preserve">
     <value>统计</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>未知的错误</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>用户名</value>

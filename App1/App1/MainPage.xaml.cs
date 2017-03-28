@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -23,7 +24,7 @@ namespace BuptAssistant
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             //Ecard
@@ -35,27 +36,23 @@ namespace BuptAssistant
                     //get balance to show on the button
                     var ecardId = Application.Current.Properties["Ecard.id"] as string;
                     var ecardPassword = Application.Current.Properties["Ecard.password"] as string;
-                    Device.BeginInvokeOnMainThread(async () =>
+                    this.EcardButton.IsEnabled = true;
+                    try
                     {
-                        this.EcardButton.IsEnabled = true;
-                        try
-                        {
-                            await GetBalance(ecardId, ecardPassword);
-                        }
-                        catch (AuthenticationFailedException)
-                        {
-                            //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
-                        }
-                        catch (System.Net.Http.HttpRequestException)
-                        {
-                            //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
-                        }
-                        catch (TaskCanceledException)
-                        {
-                            //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkTimeout, strings.OK);
-                        }
-                        
-                    });
+                        await GetBalance(ecardId, ecardPassword);
+                    }
+                    catch (AuthenticationFailedException)
+                    {
+                        //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.LoginFailed, strings.OK);
+                    }
+                    catch (System.Net.Http.HttpRequestException)
+                    {
+                        //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkError, strings.OK);
+                    }
+                    catch (TaskCanceledException)
+                    {
+                        //await CrossPlatformFeatures.Toast(this, strings.Alert, strings.NetworkTimeout, strings.OK);
+                    }
                 }
                 else
                 {
@@ -72,6 +69,59 @@ namespace BuptAssistant
                     await Application.Current.SavePropertiesAsync();
                 });
             }
+
+            //Electricity Bill
+            if (Application.Current.Properties.ContainsKey("Dorm.enable"))
+            {
+                bool dormEnable = (bool) Application.Current.Properties["Dorm.enable"];
+                if (dormEnable)
+                {
+                    EleBillButton.IsEnabled = true;
+                    try
+                    {
+                        string dormId = Application.Current.Properties["Dorm.id"] as string;
+                        double electricityBalance = await ElectricityBill.ElectricityBill.Balance(dormId);
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            EleBillButton.Text = strings.DormEleBalance + ":" + electricityBalance.ToString() +
+                                                 strings.Degree;
+                            if (electricityBalance <= 30)
+                            {
+                                EleBillButton.TextColor = Color.Red;
+                            }
+                        });
+                    }
+                    catch (HttpRequestException)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            EleBillButton.Text = strings.NetworkError;
+                        });
+                    }
+                    catch (ArgumentException)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            EleBillButton.Text = strings.DormIdInvaild;
+                        });
+                    }
+                    catch (Exception)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            EleBillButton.Text = strings.UnknownError;
+                        });
+                    }
+                }
+                else
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        EleBillButton.IsEnabled = false;
+                    });
+                }
+            }
+            
         }
 
         private async void EcardButton_Clicked(object sender, EventArgs e)

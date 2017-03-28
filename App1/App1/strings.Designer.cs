@@ -143,11 +143,74 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 度.
+        /// </summary>
+        public static string Degree {
+            get {
+                return ResourceManager.GetString("Degree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 删除.
         /// </summary>
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 电费余量.
+        /// </summary>
+        public static string DormEleBalance {
+            get {
+                return ResourceManager.GetString("DormEleBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 宿舍电费.
+        /// </summary>
+        public static string DormEleBill {
+            get {
+                return ResourceManager.GetString("DormEleBill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 宿舍电费监控开关.
+        /// </summary>
+        public static string DormEleEnable {
+            get {
+                return ResourceManager.GetString("DormEleEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 宿舍号.
+        /// </summary>
+        public static string DormId {
+            get {
+                return ResourceManager.GetString("DormId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 例如：1-101.
+        /// </summary>
+        public static string DormIdExample {
+            get {
+                return ResourceManager.GetString("DormIdExample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 无效的宿舍号.
+        /// </summary>
+        public static string DormIdInvaild {
+            get {
+                return ResourceManager.GetString("DormIdInvaild", resourceCulture);
             }
         }
         
@@ -310,6 +373,15 @@ namespace BuptAssistant {
         public static string Statistic {
             get {
                 return ResourceManager.GetString("Statistic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 未知的错误.
+        /// </summary>
+        public static string UnknownError {
+            get {
+                return ResourceManager.GetString("UnknownError", resourceCulture);
             }
         }
         

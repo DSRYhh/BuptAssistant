@@ -24,14 +24,22 @@
             BackgroundColor="#2CC2FF"
             Grid.Row="0" 
             Grid.Column="0"/>
+        <Button x:Name="EleBillButton"
+            Text="{x:Static local:strings.DormEleBill}"
+            Image="icon_ev_station.png"
+            BorderRadius="35"
+            ContentLayout="Top,10"
+            BackgroundColor="#FFEF7E"
+            Grid.Row="0" 
+            Grid.Column="1"/>
         <Button Text="{x:Static local:strings.Setting}"
                 BorderRadius="35"
                 Image="icon_settings.png"
                 ContentLayout="Top,10"
                 x:Name="SettingsButton"
                 BackgroundColor="#81FF7B" 
-                Grid.Row="0" 
-                Grid.Column="1" 
+                Grid.Row="1" 
+                Grid.Column="0" 
                 Clicked="SettingButton_OnClicked"/>
     </Grid>
 

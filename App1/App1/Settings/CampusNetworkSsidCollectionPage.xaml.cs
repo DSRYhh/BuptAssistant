@@ -23,10 +23,10 @@ namespace BuptAssistant.Settings
             GetSsidList();
         }
 
-        private async void GetSsidList()
+        private void GetSsidList()
         {
             if (Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
-            {
+            {   
                 var ssidSet = Application.Current.Properties["CampusNetwork.networkName"] as HashSet<string>;
 
                 if (ssidSet != null)

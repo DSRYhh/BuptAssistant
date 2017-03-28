@@ -283,7 +283,7 @@ namespace EcardData
                 }
                 else
                 {
-                    throw new WebException();
+                    throw new HttpRequestException();
                 }
             }
         }

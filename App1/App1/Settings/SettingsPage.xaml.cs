@@ -57,6 +57,15 @@ namespace BuptAssistant.Settings
             {
                 this.CampusNetworkSsid.Value = Application.Current.Properties["CampusNetwork.networkName"] as string;
             }
+
+            if (Application.Current.Properties.ContainsKey("Dorm.id"))
+            {
+                this.DormIdEntry.Value = Application.Current.Properties["Dorm.id"] as string;
+            }
+            if (Application.Current.Properties.ContainsKey("Dorm.enable"))
+            {
+                this.DormEleEnableSwitcher.On = (bool) Application.Current.Properties["Dorm.enable"];
+            }
         }
 
         protected override void OnDisappearing()
@@ -68,7 +77,6 @@ namespace BuptAssistant.Settings
         private async void UpdateSettingsData()
         {
             {
-                
                 var ecardEnable = EcardEnableSwitcher.On;
 
                 if (ecardEnable)
@@ -144,6 +152,29 @@ namespace BuptAssistant.Settings
                 else
                 {
                     Application.Current.Properties.Add("CampusNetwork.networkName", CampusNetworkSsid.Value);
+                }
+
+
+                if (Application.Current.Properties.ContainsKey("Dorm.enable"))
+                {
+                    Application.Current.Properties["Dorm.enable"] = DormEleEnableSwitcher.On;
+                }
+                else
+                {
+                    Application.Current.Properties.Add("Dorm.enable",DormEleEnableSwitcher.On);
+                }
+
+                string dormId = DormIdEntry.Value;
+                if (!string.IsNullOrEmpty(dormId))
+                {
+                    if (Application.Current.Properties.ContainsKey("Dorm.id"))
+                    {
+                        Application.Current.Properties["Dorm.id"] = dormId;
+                    }
+                    else
+                    {
+                        Application.Current.Properties.Add("Dorm.id", dormId);
+                    }
                 }
 
                 await Application.Current.SavePropertiesAsync();
