@@ -118,6 +118,7 @@ namespace BuptAssistant
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         EleBillButton.IsEnabled = false;
+                        EleBillButton.Text = strings.DormEleBill;
                     });
                 }
             }
