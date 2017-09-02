@@ -174,7 +174,7 @@ namespace EcardData
         {
             var data = new UTF8Encoding().GetBytes(postData);
 
-            HttpClientHandler handler = new HttpClientHandler
+            var handler = new HttpClientHandler
             {
                 AllowAutoRedirect = false,
                 CookieContainer = new CookieContainer(),

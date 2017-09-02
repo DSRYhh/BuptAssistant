@@ -168,6 +168,9 @@
   <data name="DormIdInvaild" xml:space="preserve">
     <value>无效的宿舍号</value>
   </data>
+  <data name="DormUniformLoginRequire" xml:space="preserve">
+    <value>必须使用统一认证登录以查询电费余量</value>
+  </data>
   <data name="EcardEnable" xml:space="preserve">
     <value>校园卡功能开关</value>
   </data>
@@ -221,6 +224,12 @@
   </data>
   <data name="Statistic" xml:space="preserve">
     <value>统计</value>
+  </data>
+  <data name="UniformLogin" xml:space="preserve">
+    <value>统一认证登录</value>
+  </data>
+  <data name="UniformLoginEnable" xml:space="preserve">
+    <value>使用统一认证登录</value>
   </data>
   <data name="UnknownError" xml:space="preserve">
     <value>未知的错误</value>

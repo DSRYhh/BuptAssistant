@@ -66,6 +66,15 @@ namespace BuptAssistant.Settings
             {
                 this.DormEleEnableSwitcher.On = (bool) Application.Current.Properties["Dorm.enable"];
             }
+
+            if (Application.Current.Properties.ContainsKey("Uniform.id"))
+            {
+                this.UniformIdEntry.Value = Application.Current.Properties["Uniform.id"] as string;
+            }
+            if (Application.Current.Properties.ContainsKey("Uniform.password"))
+            {
+                this.UniformPasswordEntry.Value = Application.Current.Properties["Uniform.password"] as string;
+            }
         }
 
         protected override void OnDisappearing()
@@ -76,114 +85,127 @@ namespace BuptAssistant.Settings
 
         private async void UpdateSettingsData()
         {
+            var properties = Application.Current.Properties;
+
+            var ecardEnable = EcardEnableSwitcher.On;
+
+            if (ecardEnable)
             {
-                var ecardEnable = EcardEnableSwitcher.On;
+                var ecardPassword = EcardPassowrd.Value;
+                var ecardPasswordKey = EcardPassowrd.Key;
 
-                if (ecardEnable)
+                //TODO: Bug in Huawei Phone password field is not available in Huawei device.
+                //To reproduce it, click set EcardPassowrd.isPassword to True and click it after click Username, then it will lose focus and jump focus to username
+                //If disable Huawei safety keyboard, this will be fixed.
+                var ecardId = this.EcardId.Value;
+                var ecardIdKey = this.EcardId.Key;
+
+                if (Application.Current.Properties.ContainsKey(ecardPasswordKey))
                 {
-                    var ecardPassword = this.EcardPassowrd.Value;
-                    var ecardPasswordKey = this.EcardPassowrd.Key;
-
-                    //TODO: Bug in Huawei Phone password field is not available in Huawei device.
-                    //To reproduce it, click set EcardPassowrd.isPassword to True and click it after click Username, then it will lose focus and jump focus to username
-                    //If disable Huawei safety keyboard, this will be ok.
-                    var ecardId = this.EcardId.Value;
-                    var ecardIdKey = this.EcardId.Key;
-
-                    if (Application.Current.Properties.ContainsKey(ecardPasswordKey))
-                    {
-                        Application.Current.Properties[ecardPasswordKey] = ecardPassword;
-                    }
-                    else
-                    {
-                        Application.Current.Properties.Add(ecardPasswordKey, ecardPassword);
-                    }
-
-                    if (Application.Current.Properties.ContainsKey(ecardIdKey))
-                    {
-                        Application.Current.Properties[ecardIdKey] = ecardId;
-                    }
-                    else
-                    {
-                        Application.Current.Properties.Add(ecardIdKey, ecardId);
-                    }
-                }
-
-                if (Application.Current.Properties.ContainsKey("CampusNetwork.enable"))
-                {
-                    Application.Current.Properties["CampusNetwork.enable"] = CampusNetworkEnableSwitcher.On;
+                    Application.Current.Properties[ecardPasswordKey] = ecardPassword;
                 }
                 else
                 {
-                    Application.Current.Properties.Add("CampusNetwork.enable",CampusNetworkEnableSwitcher.On);
+                    Application.Current.Properties.Add(ecardPasswordKey, ecardPassword);
                 }
-                
-                if (Application.Current.Properties.ContainsKey("Ecard.enable"))
+
+                if (Application.Current.Properties.ContainsKey(ecardIdKey))
                 {
-                    Application.Current.Properties["Ecard.enable"] = this.EcardEnableSwitcher.On;
+                    Application.Current.Properties[ecardIdKey] = ecardId;
                 }
                 else
                 {
-                    Application.Current.Properties.Add("Ecard.enable",this.EcardEnableSwitcher.On);
+                    Application.Current.Properties.Add(ecardIdKey, ecardId);
                 }
+            }
 
-                if (Application.Current.Properties.ContainsKey(CampusNetworkId.Key))
-                {
-                    Application.Current.Properties[CampusNetworkId.Key] = CampusNetworkId.Value;
-                }
-                else
-                {
-                    Application.Current.Properties.Add(CampusNetworkId.Key,CampusNetworkId.Value);
-                }
+            if (Application.Current.Properties.ContainsKey("CampusNetwork.enable"))
+            {
+                Application.Current.Properties["CampusNetwork.enable"] = CampusNetworkEnableSwitcher.On;
+            }
+            else
+            {
+                Application.Current.Properties.Add("CampusNetwork.enable", CampusNetworkEnableSwitcher.On);
+            }
 
-                if (Application.Current.Properties.ContainsKey(CampusNetworkPassowrd.Key))
-                {
-                    Application.Current.Properties[CampusNetworkPassowrd.Key] = CampusNetworkPassowrd.Value;
-                }
-                else
-                {
-                    Application.Current.Properties.Add(CampusNetworkPassowrd.Key,CampusNetworkPassowrd.Value);
-                }
+            if (Application.Current.Properties.ContainsKey("Ecard.enable"))
+            {
+                Application.Current.Properties["Ecard.enable"] = this.EcardEnableSwitcher.On;
+            }
+            else
+            {
+                Application.Current.Properties.Add("Ecard.enable", this.EcardEnableSwitcher.On);
+            }
 
-                if (Application.Current.Properties.ContainsKey("CampusNetwork.networkName"))
-                {
-                    Application.Current.Properties["CampusNetwork.networkName"] = this.CampusNetworkSsid.Value;
-                }
-                else
-                {
-                    Application.Current.Properties.Add("CampusNetwork.networkName", CampusNetworkSsid.Value);
-                }
+            if (Application.Current.Properties.ContainsKey(CampusNetworkId.Key))
+            {
+                Application.Current.Properties[CampusNetworkId.Key] = CampusNetworkId.Value;
+            }
+            else
+            {
+                Application.Current.Properties.Add(CampusNetworkId.Key, CampusNetworkId.Value);
+            }
 
+            if (Application.Current.Properties.ContainsKey(CampusNetworkPassowrd.Key))
+            {
+                Application.Current.Properties[CampusNetworkPassowrd.Key] = CampusNetworkPassowrd.Value;
+            }
+            else
+            {
+                Application.Current.Properties.Add(CampusNetworkPassowrd.Key, CampusNetworkPassowrd.Value);
+            }
 
-                if (Application.Current.Properties.ContainsKey("Dorm.enable"))
-                {
-                    Application.Current.Properties["Dorm.enable"] = DormEleEnableSwitcher.On;
-                }
-                else
-                {
-                    Application.Current.Properties.Add("Dorm.enable",DormEleEnableSwitcher.On);
-                }
+            AddSettingsItem("CampusNetwork.networkName", CampusNetworkSsid.Value);
 
-                string dormId = DormIdEntry.Value;
-                if (!string.IsNullOrEmpty(dormId))
-                {
-                    if (Application.Current.Properties.ContainsKey("Dorm.id"))
-                    {
-                        Application.Current.Properties["Dorm.id"] = dormId;
-                    }
-                    else
-                    {
-                        Application.Current.Properties.Add("Dorm.id", dormId);
-                    }
-                }
+            AddSettingsItem("Dorm.enable", DormEleEnableSwitcher.On);
 
-                await Application.Current.SavePropertiesAsync();
+            var dormId = DormIdEntry.Value;
+            if (!string.IsNullOrEmpty(dormId))
+            {
+                AddSettingsItem("Dorm.id", dormId);
+            }
+
+            var uniformEnable = UniformLoginSwitcher.On;
+            AddSettingsItem("Uniform.enable", uniformEnable);
+            
+            if (uniformEnable)
+            {
+                AddSettingsItem("Uniform.id", UniformIdEntry.Value);
+                AddSettingsItem("Uniform.password", UniformPasswordEntry.Value);
+            }
+
+            await Application.Current.SavePropertiesAsync();
+        }
+
+        private static void AddSettingsItem(string key, object value)
+        {
+            var properties = Application.Current.Properties;
+
+            if (properties.ContainsKey(key))
+            {
+                properties[key] = value;
+            }
+            else
+            {
+                properties.Add(key, value);
             }
         }
 
         private async void GuideToSsidCollectionPageButton_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CampusNetworkSsidCollectionPage());
+        }
+
+        /// <summary>
+        /// Dorm query require uniform login enable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void CheckIfUniformLoginEnable(object sender, EventArgs e)
+        {
+            if (UniformLoginSwitcher.On) return;
+            await DisplayAlert(strings.Alert, strings.DormUniformLoginRequire, strings.OK);
+            DormEleEnableSwitcher.On = false;
         }
     }
 }

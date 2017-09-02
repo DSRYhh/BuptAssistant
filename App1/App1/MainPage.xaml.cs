@@ -73,14 +73,16 @@ namespace BuptAssistant
             //Electricity Bill
             if (Application.Current.Properties.ContainsKey("Dorm.enable"))
             {
-                bool dormEnable = (bool) Application.Current.Properties["Dorm.enable"];
+                var dormEnable = (bool) Application.Current.Properties["Dorm.enable"];
                 if (dormEnable)
                 {
                     EleBillButton.IsEnabled = true;
                     try
                     {
                         string dormId = Application.Current.Properties["Dorm.id"] as string;
-                        double electricityBalance = await ElectricityBill.ElectricityBill.Balance(dormId);
+                        string userName = Application.Current.Properties["Uniform.id"] as string;
+                        string password = Application.Current.Properties["Uniform.password"] as string;
+                        double electricityBalance = await ElectricityBill.ElectricityBill.Balance(dormId, userName, password);
                         Device.BeginInvokeOnMainThread(() =>
                         {
                             EleBillButton.Text = strings.DormEleBalance + ":" + electricityBalance.ToString() +

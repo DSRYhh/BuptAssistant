@@ -215,6 +215,15 @@ namespace BuptAssistant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 必须使用统一认证登录以查询电费余量.
+        /// </summary>
+        public static string DormUniformLoginRequire {
+            get {
+                return ResourceManager.GetString("DormUniformLoginRequire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 校园卡功能开关.
         /// </summary>
         public static string EcardEnable {
@@ -373,6 +382,24 @@ namespace BuptAssistant {
         public static string Statistic {
             get {
                 return ResourceManager.GetString("Statistic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 统一认证登录.
+        /// </summary>
+        public static string UniformLogin {
+            get {
+                return ResourceManager.GetString("UniformLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 使用统一认证登录.
+        /// </summary>
+        public static string UniformLoginEnable {
+            get {
+                return ResourceManager.GetString("UniformLoginEnable", resourceCulture);
             }
         }
         

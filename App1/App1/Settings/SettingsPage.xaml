@@ -46,11 +46,23 @@
                 </TableSection>
                 <TableSection Title="{x:Static buptAssistant:strings.DormEleBill}">
                     <SwitchCell x:Name="DormEleEnableSwitcher"
-                            Text="{x:Static buptAssistant:strings.DormEleEnable}"/>
+                            Text="{x:Static buptAssistant:strings.DormEleEnable}"
+                                Tapped="CheckIfUniformLoginEnable"/>
                     <settings:EntryCell Label="{x:Static buptAssistant:strings.DormId}"
                                 PlaceHolder="{x:Static buptAssistant:strings.DormIdExample}"
                                 Key="Dorm.id"
                                 x:Name="DormIdEntry"/>
+                </TableSection>
+                <TableSection Title="{x:Static buptAssistant:strings.UniformLogin}">
+                    <SwitchCell x:Name="UniformLoginSwitcher"
+                                Text="{x:Static buptAssistant:strings.UniformLoginEnable}"/>
+                    <settings:EntryCell Label="{x:Static buptAssistant:strings.UserName}"
+                                        Key="Uniform.id"
+                                        x:Name="UniformIdEntry"/>
+                    <settings:EntryCell Label="{x:Static buptAssistant:strings.Password}"
+                                        Key="Uniform.password"
+                                        IsPassword="True"
+                                        x:Name="UniformPasswordEntry"/>
                 </TableSection>
             </TableView.Root>
         </TableView>
