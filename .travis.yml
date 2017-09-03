@@ -1,6 +1,7 @@
 language: csharp
 solution: BuptAssistant.sln
 install:
+  - nuget sources Add -Name "SyncFusionPackages" -source http://nuget.syncfusion.com/nuget_xamarin/nuget/getsyncfusionpackages/xamarin
   - nuget restore BuptAssistant.sln
 mono:
   - latest
